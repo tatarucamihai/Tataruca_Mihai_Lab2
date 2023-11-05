@@ -23,6 +23,7 @@ namespace Tataruca_Mihai_Lab2.Pages.Categories
 
         public async Task OnGetAsync()
         {
+            Category = await _context.Category.Include(c => c.BookCategories).ToListAsync();
             if (_context.Category != null)
             {
                 Category = await _context.Category.ToListAsync();
